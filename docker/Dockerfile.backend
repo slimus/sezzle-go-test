@@ -1,0 +1,11 @@
+# build environment
+FROM golang:alpine3.13 as build
+WORKDIR /app
+COPY backend/ ./
+RUN go mod vendor
+RUN go build src/cmd/web/main.go 
+
+# production environment
+FROM alpine:3.13
+COPY --from=build /app/main /app
+CMD ["/app"]

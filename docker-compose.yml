@@ -1,0 +1,23 @@
+version: '3.7'
+
+services:
+
+  frontend:
+    container_name: frontend
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.frontend
+      args:
+        REACT_APP_WS_URL: "ws://localhost:9000/"
+    ports:
+      - '8080:80'
+
+  backend:
+    container_name: backend
+    build: 
+      context: .
+      dockerfile: docker/Dockerfile.backend
+    environment:
+      CALC_WS_PORT: "9000"
+    ports:
+      - '9000:9000'
