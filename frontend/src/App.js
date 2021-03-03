@@ -11,7 +11,7 @@ class App extends Component {
     super(props);
     this.state = {
       error: "",
-      message: "",
+      expression: "",
       history: [],
       ws: null,
     };  
@@ -39,8 +39,8 @@ class App extends Component {
     };
   }
 
-  sendMessage = () => {
-    return this.state.ws.send(this.state.message);
+  sendExpression = () => {
+    return this.state.ws.send(this.state.expression);
   };
 
   handleChangeData = (event) => {
@@ -53,8 +53,8 @@ class App extends Component {
         <Grid.Row>
           <Form.Field>
             <Form.Input
-              placeholder="Message"
-              name="message"
+              placeholder="Expression"
+              name="expression"
               onChange={(e) => this.handleChangeData(e)}/>
           </Form.Field>
         </Grid.Row>
