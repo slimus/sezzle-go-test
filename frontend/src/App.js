@@ -65,7 +65,7 @@ class App extends Component {
               icon='checkmark' 
               labelPosition='right' 
               content='Send it!' 
-              onClick={() => this.sendMessage()}/>
+              onClick={() => this.sendExpression()}/>
             </Form.Field>
         </Grid.Row>
         <Grid.Row>
